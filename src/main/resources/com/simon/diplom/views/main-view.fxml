@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ScrollPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.simon.diplom.MainController">
+  <top>
+    <MenuBar>
+      <Menu text="Файл">
+        <MenuItem text="Новый" onAction="#newFile"/>
+        <MenuItem text="Открыть" onAction="#loadFile"/>
+        <MenuItem text="Сохранить" onAction="#saveFile"/>
+        <MenuItem text="Сохранить как" onAction="#saveToFile"/>
+      </Menu>
+      <Menu text="Справка">
+        <MenuItem text="Помощь" onAction="#showHelp"/>
+        <MenuItem text="О программе" onAction="#showInfo"/>
+      </Menu>
+    </MenuBar>
+  </top>
+
+  <center>
+    <SplitPane orientation="VERTICAL" dividerPositions="0.9">
+
+      <SplitPane dividerPositions="0.2, 0.7">
+          <BorderPane>
+            <top>
+              <VBox alignment="TOP_CENTER" style="-fx-background-color: lightblue; -fx-border-width: 1; -fx-border-color: black;"><Label text="Палитра"/></VBox>
+            </top>
+            <center>
+              <VBox fx:id="pallet" alignment="TOP_CENTER" spacing="5">
+
+              </VBox>
+            </center>
+          </BorderPane>
+          <BorderPane>
+            <top>
+              <VBox fx:id="headerBox" alignment="TOP_CENTER" style="-fx-background-color: lightblue; -fx-border-width: 1; -fx-border-color: black;"><Label text="Рабочая область"/></VBox>
+            </top>
+            <center>
+                <Pane fx:id="workArea"/>
+            </center>
+          </BorderPane>
+          <BorderPane>
+            <top>
+              <VBox alignment="TOP_CENTER" style="-fx-background-color: lightblue; -fx-border-width: 1; -fx-border-color: black;"><Label text="Панель сведений"/></VBox>
+            </top>
+            <center>
+              <ScrollPane>
+                <VBox fx:id="formArea" spacing="10" alignment="TOP_CENTER"/>
+              </ScrollPane>
+            </center>
+          </BorderPane>
+      </SplitPane>
+      <BorderPane>
+        <top>
+          <VBox alignment="CENTER_LEFT" style="-fx-background-color: lightblue; -fx-border-width: 1; -fx-border-color: black;"><Label text="Лог"/></VBox>
+        </top>
+        <center>
+          <TextArea fx:id="logArea" editable="false" maxHeight="Infinity"/>
+        </center>
+      </BorderPane>
+    </SplitPane>
+
+
+  </center>
+</BorderPane>
+
+
